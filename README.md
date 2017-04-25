@@ -4,7 +4,7 @@ Get Github User's favorite language
 ## Description
 FavlangJS connects with GitHub API via REST Web Services and get a list of the programming languages used by an user and the number of bytes coded in each one.
 
-FavLang is implemented in NodeJS with ExpressJS under MVC pattern.
+FavLangJS is implemented in NodeJS with ExpressJS under MVC pattern.
 
 ## Installation instructions
 
