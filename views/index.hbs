@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<style>
+<!-- This code should go in a css file -->
+table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+}
+td, th {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+}
+tr:nth-child(even) {
+	background-color: #dddddd;
+}
+.blueText {
+	color: blue;
+}
+.redText {
+	color: red;
+	visibility: hidden;
+}
+</style>
+
+<script>
+<!-- This code should go in a js file -->
+  window.onload = printTable;
+
+  function printTable () { 
+  	var error = '{{error}}';
+  	var langs ={{{langs}}};
+  	var table = document.getElementById("table");
+  	langs.forEach(function(item,index) {
+  		var row = table.insertRow(-1);
+  		var cell1 = row.insertCell(0);
+   		var cell2 = row.insertCell(1);
+   		cell1.innerHTML = item.name;
+    		cell2.innerHTML = item.lines;
+  	});
+  	
+  	if(error !== undefined) {
+  	     var errorText = document.getElementById("error");
+  	     errorText.style.visibility="visible";
+  	}
+  	
+  }
+</script>
+
+</head>
+<body>
+
+	<h1>GitHub User's Favorite Programming Languages</h1>
+	<h2>Please introduce a Github username</h2>
+	
+	<p>You can try: kitodo, jbtadmin, timgrossmann, vireshmanagooli, testgithubpua</p>
+
+	<form action="/favlangjs">
+		Username: <input type="text" name="username" value="{{username}}"> <input
+			type="submit" value="Submit">
+	</form>
+	<p class="redText" id="error">{{error}}</p>
+
+
+		<table id="table">
+			<tr>
+				<th>Programming Language</th>
+				<th>Number of bytes coded</th>
+			</tr>
+			<!--<tr>
+				<td class="blueText">${entry.name} (Favorite Programming Language)</td>
+				<td class="blueText">${entry.codeBytes}</td>
+			</tr>
+
+			<tr>
+				<td>${entry.name}</td>
+				<td>${entry.codeBytes}</td>
+			</tr>-->
+		</table>
+	</c:if>
+
+</body>
+</html>
